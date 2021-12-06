@@ -17,9 +17,17 @@
     "type": "git",
     "url": "git+https://github.com/eliut505/Walletfy-cli.git"
   },
-  "keywords": [],
+  "keywords": [
+    "btc",
+    "wallet",
+    "cli",
+    "bitcoin",
+    "walletfy",
+    "crypto",
+    "cryptocurrency"
+  ],
   "author": "Eliut González",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/eliut505/Walletfy-cli/issues"
   },
