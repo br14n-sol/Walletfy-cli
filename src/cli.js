@@ -77,14 +77,23 @@ const cli = async (args) => {
     return;
   }
 
-  if (!coins.includes(parsedArgs.coin)) {
+  if (
+    !Object.values(coins).find((coin) => {
+      const parsedName = coin.name.toLowerCase();
+      const parsedSymbol = coin.symbol.toLowerCase();
+      return (
+        parsedName === parsedArgs.coin.toLowerCase() ||
+        parsedSymbol === parsedArgs.coin.toLowerCase()
+      );
+    })
+  ) {
     console.log(
       pc.red(
         `The coin ${pc.bold(
           parsedArgs.coin
-        )} is not supported. Please use one of the following coins: ${coins.join(
-          ", "
-        )}`
+        )} is not supported. Please use one of the following coins: ${Object.keys(
+          coins
+        ).join(", ")}`
       )
     );
     return;

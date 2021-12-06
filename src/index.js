@@ -2,7 +2,14 @@ const pc = require("picocolors");
 const inquirer = require("inquirer");
 const Walletfy = require("walletfy");
 
-const coins = ["bitcoin", "ethereum", "litecoin", "nano", "shiba-inu"];
+const coins = {
+  bitcoin: { name: "Bitcoin", symbol: "BTC" },
+  ethereum: { name: "Ethereum", symbol: "ETH" },
+  litecoin: { name: "Litecoin", symbol: "LTC" },
+  nano: { name: "Nano", symbol: "NANO" },
+  "shiba-inu": { name: "Shiba Inu", symbol: "SHIBA" },
+};
+
 const actions = ["Generate wallet", "Get balance", "Get symbol"];
 
 const ACTIONS_MAP = {
@@ -22,7 +29,9 @@ const ACTIONS_MAP = {
     try {
       console.log(pc.green("Getting balance..."));
       const balance = await coin.getBalance(address);
-      console.log(`${pc.green(`Balance:`)} ${balance}`);
+      console.log(
+        `${pc.green(`Balance:`)} ${balance} ${coin.getCode().toUpperCase()}`
+      );
     } catch (error) {
       throw new Error(error);
     }
@@ -49,7 +58,7 @@ const ask = async () => {
       type: "list",
       name: "coin",
       message: "Which coin do you want to use?",
-      choices: coins,
+      choices: Object.values(coins).map((coin) => coin.name),
     },
     {
       type: "list",
