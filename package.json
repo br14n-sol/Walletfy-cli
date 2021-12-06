@@ -1,6 +1,6 @@
 {
   "name": "walletfy-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Walletfy command-line tools for wallet management.",
   "main": "src/index.js",
   "scripts": {
