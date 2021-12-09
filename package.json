@@ -33,11 +33,11 @@
   },
   "homepage": "https://github.com/eliut505/Walletfy-cli#readme",
   "dependencies": {
-    "arg": "^5.0.1",
-    "clear": "^0.1.0",
-    "figlet": "^1.5.2",
-    "inquirer": "^8.2.0",
-    "picocolors": "^1.0.0",
-    "walletfy": "^0.0.1"
+    "arg": "5.0.1",
+    "clear": "0.1.0",
+    "figlet": "1.5.2",
+    "inquirer": "8.2.0",
+    "picocolors": "1.0.0",
+    "walletfy": "0.0.2"
   }
 }

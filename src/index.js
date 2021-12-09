@@ -2,13 +2,14 @@ const pc = require("picocolors");
 const inquirer = require("inquirer");
 const Walletfy = require("walletfy");
 
-const coins = {
-  bitcoin: { name: "Bitcoin", symbol: "BTC" },
-  ethereum: { name: "Ethereum", symbol: "ETH" },
-  litecoin: { name: "Litecoin", symbol: "LTC" },
-  nano: { name: "Nano", symbol: "NANO" },
-  "shiba-inu": { name: "Shiba Inu", symbol: "SHIBA" },
-};
+const coins = {};
+
+new Walletfy().availableCoins.forEach((coin) => {
+  coins[coin.name] = {
+    name: coin.name,
+    symbol: coin.code,
+  };
+});
 
 const actions = ["Generate wallet", "Get balance", "Get symbol"];
 
@@ -47,7 +48,7 @@ const ACTIONS_MAP = {
 };
 
 const run = async ({ coin: selectedCoin, action, address }) => {
-  const walletfy = new Walletfy.default();
+  const walletfy = new Walletfy();
   const coin = walletfy.getCoin(selectedCoin);
   await ACTIONS_MAP[action](coin, address);
 };
