@@ -4,7 +4,7 @@
   "description": "Walletfy command-line tools for wallet management.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postpublish": "git push --follow-tags"
   },
   "bin": {
     "walletfy": "./bin/walletfy-cli"
